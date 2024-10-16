@@ -52,7 +52,7 @@ public class BookModel: Equatable, Hashable {
     }
 
     public static func == (lhs: BookModel, rhs: BookModel) -> Bool {
-        return (lhs.bookId == rhs.bookId)
+        return lhs.bookId == rhs.bookId
     }
 
     public func hash(into hasher: inout Hasher) {

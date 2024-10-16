@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8497AE432CBF33F70040E882 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497AE422CBF33F70040E882 /* DateUtil.swift */; };
+		8497AE452CBF34600040E882 /* LogUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497AE442CBF34600040E882 /* LogUtil.swift */; };
+		8497AE472CBF34C40040E882 /* _SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497AE462CBF34C40040E882 /* _SQLiteManager.swift */; };
+		8497AE492CBF35600040E882 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8497AE482CBF35600040E882 /* String+Extension.swift */; };
 		994570F47548991B5E88CB2A /* Pods_PodTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1D9C68C42D4AEF588F7DDC0 /* Pods_PodTest.framework */; };
 		EC10A8792CBE8B4A0024A08A /* PodTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC10A8782CBE8B4A0024A08A /* PodTestApp.swift */; };
 		EC10A87B2CBE8B4A0024A08A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC10A87A2CBE8B4A0024A08A /* ContentView.swift */; };
@@ -21,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		2CD7C66A3213A2008C0091A8 /* Pods-PodTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodTest.debug.xcconfig"; path = "Target Support Files/Pods-PodTest/Pods-PodTest.debug.xcconfig"; sourceTree = "<group>"; };
+		8497AE422CBF33F70040E882 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		8497AE442CBF34600040E882 /* LogUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUtil.swift; sourceTree = "<group>"; };
+		8497AE462CBF34C40040E882 /* _SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _SQLiteManager.swift; sourceTree = "<group>"; };
+		8497AE482CBF35600040E882 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		DA29C3B4E91E959232BA57CD /* Pods-PodTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PodTest.release.xcconfig"; path = "Target Support Files/Pods-PodTest/Pods-PodTest.release.xcconfig"; sourceTree = "<group>"; };
 		EC10A8752CBE8B4A0024A08A /* PodTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PodTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC10A8782CBE8B4A0024A08A /* PodTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodTestApp.swift; sourceTree = "<group>"; };
@@ -106,6 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				EC3398A22CBEB8BC008BC5B2 /* BookModel.swift */,
+				8497AE422CBF33F70040E882 /* DateUtil.swift */,
+				8497AE442CBF34600040E882 /* LogUtil.swift */,
+				8497AE462CBF34C40040E882 /* _SQLiteManager.swift */,
+				8497AE482CBF35600040E882 /* String+Extension.swift */,
 			);
 			path = dao;
 			sourceTree = "<group>";
@@ -234,8 +246,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC3398A32CBEB8BC008BC5B2 /* BookModel.swift in Sources */,
+				8497AE492CBF35600040E882 /* String+Extension.swift in Sources */,
+				8497AE432CBF33F70040E882 /* DateUtil.swift in Sources */,
+				8497AE452CBF34600040E882 /* LogUtil.swift in Sources */,
 				EC10A87B2CBE8B4A0024A08A /* ContentView.swift in Sources */,
 				EC10A8792CBE8B4A0024A08A /* PodTestApp.swift in Sources */,
+				8497AE472CBF34C40040E882 /* _SQLiteManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
