@@ -21,6 +21,7 @@
 		EC33989E2CBEB2C9008BC5B2 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = EC33989D2CBEB2C9008BC5B2 /* MyLibrary */; };
 		EC3398A02CBEB2C9008BC5B2 /* MyLibrary2 in Frameworks */ = {isa = PBXBuildFile; productRef = EC33989F2CBEB2C9008BC5B2 /* MyLibrary2 */; };
 		EC3398A32CBEB8BC008BC5B2 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3398A22CBEB8BC008BC5B2 /* BookModel.swift */; };
+		ECE4F1A82CC08E3B00076C2A /* _SafetySQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4F1A72CC08E3B00076C2A /* _SafetySQLiteManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EC10A87C2CBE8B4B0024A08A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC10A87F2CBE8B4B0024A08A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EC3398A22CBEB8BC008BC5B2 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		ECE4F1A72CC08E3B00076C2A /* _SafetySQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _SafetySQLiteManager.swift; sourceTree = "<group>"; };
 		F1D9C68C42D4AEF588F7DDC0 /* Pods_PodTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +120,7 @@
 				8497AE442CBF34600040E882 /* LogUtil.swift */,
 				8497AE462CBF34C40040E882 /* _SQLiteManager.swift */,
 				8497AE482CBF35600040E882 /* String+Extension.swift */,
+				ECE4F1A72CC08E3B00076C2A /* _SafetySQLiteManager.swift */,
 			);
 			path = dao;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				8497AE432CBF33F70040E882 /* DateUtil.swift in Sources */,
 				8497AE452CBF34600040E882 /* LogUtil.swift in Sources */,
 				EC10A87B2CBE8B4A0024A08A /* ContentView.swift in Sources */,
+				ECE4F1A82CC08E3B00076C2A /* _SafetySQLiteManager.swift in Sources */,
 				EC10A8792CBE8B4A0024A08A /* PodTestApp.swift in Sources */,
 				8497AE472CBF34C40040E882 /* _SQLiteManager.swift in Sources */,
 			);

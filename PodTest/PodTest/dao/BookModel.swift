@@ -1,10 +1,5 @@
-//
-// BookModel.swift
-// Using Swift 5.0
-//
-// Created by Zemise on 2024/10/15
-// Copyright (c) 2023 PodTest. All rights reserved.
-//
+// Created by SwiftUIManager on 2021/09/27.
+// Copyright © 2021 Suzhou Fengyuan World Media. All rights reserved.
 
 import FMDB
 import Foundation
@@ -22,7 +17,7 @@ public class BookModel: Equatable, Hashable {
     public static var lastError: Error?
     public static var lastErrorCode: Int32?
     public static var lastErrorMessage: String?
-
+    
     public init(id paraId: String, bookNo parambookNo: String) {
         self.bookId = paraId
         self.bookNo = parambookNo
@@ -31,7 +26,7 @@ public class BookModel: Equatable, Hashable {
         self.createTime = ""
         self.updateTime = ""
     }
-
+    
     public init(id paraId: String,
                 bookNo parambookNo: String,
                 tokenId paramTokenId: String,
@@ -50,15 +45,15 @@ public class BookModel: Equatable, Hashable {
         self.createTime = paramCreateTime
         self.updateTime = paramUpdateTime
     }
-
+    
     public static func == (lhs: BookModel, rhs: BookModel) -> Bool {
-        return lhs.bookId == rhs.bookId
+        return (lhs.bookId == rhs.bookId)
     }
-
+    
     public func hash(into hasher: inout Hasher) {
         hasher.combine(bookNo + bookId)
     }
-
+        
     public var description: String {
         return "bookId = \(bookId),bookNo = \(bookNo),"
             + "tokenId = \(tokenId),isUsed = \(isUsed),"
@@ -66,7 +61,7 @@ public class BookModel: Equatable, Hashable {
             + "registTime = \(registTime ?? ""),createTime = \(createTime),"
             + "updateTime = \(updateTime)"
     }
-
+    
     //    // MARK: insertbookInfo
     //    public func insertbookInfo() -> Bool {
     //        // 1、create sql statement
@@ -75,28 +70,28 @@ public class BookModel: Equatable, Hashable {
     //        // 2、execute sql
     //        return SQLiteManager.shareManager().db!.executeUpdate(sql, withArgumentsIn: [])
     //    }
-
+     
     public static func clearErrorInfo() {
         BookModel.lastError = nil
         BookModel.lastErrorCode = nil
         BookModel.lastErrorMessage = nil
     }
-
+    
     private static func setSQLException(_ lastError: Error, _ lastErrorCode: Int32, _ lastErrorMessage: String) {
         BookModel.lastError = lastError
         BookModel.lastErrorCode = lastErrorCode
         BookModel.lastErrorMessage = lastErrorMessage
     }
-
+    
     private func executeUpdate(sql: String, _ values: AnyObject...) -> Bool {
         let db: FMDatabase = _SQLiteManager.shareManager().db!
-        let successFlg = db.executeUpdate(sql: sql, values as [AnyObject])
+        let successFlg = db.executeUpdate(sql, withArgumentsIn: values as [AnyObject])
         if !successFlg {
             BookModel.setSQLException(db.lastError(), db.lastErrorCode(), db.lastErrorMessage())
         }
         return successFlg
     }
-
+    
     private static func executeUpdate(sql: String, withArgumentsIn: [AnyObject]) -> Bool {
         let db: FMDatabase = _SQLiteManager.shareManager().db!
         let successFlg = db.executeUpdate(sql, withArgumentsIn: withArgumentsIn)
@@ -105,25 +100,16 @@ public class BookModel: Equatable, Hashable {
         }
         return successFlg
     }
-
-    private static func executeUpdate(sql: String, withArgumentsIn: [AnyObject]) -> Bool {
-        let db: FMDatabase = _SQLiteManager.shareManager().db!
-        let successFlg = db.executeUpdate(sql, withArgumentsIn: withArgumentsIn)
-        if !successFlg {
-            BookModel.setSQLException(db.lastError(), db.lastErrorCode(), db.lastErrorMessage())
-        }
-        return successFlg
-    }
-
+    
     private func executeQuery(sql: String, _ values: AnyObject...) -> FMResultSet? {
         let db: FMDatabase = _SQLiteManager.shareManager().db!
-        let result: FMResultSet? = db.executeQuery(sql: sql, values as [AnyObject])
+        let result: FMResultSet? = db.executeQuery(sql, withArgumentsIn: values as [AnyObject])
         if result == nil {
             BookModel.setSQLException(db.lastError(), db.lastErrorCode(), db.lastErrorMessage())
         }
         return result
     }
-
+    
     private static func executeQuery(sql: String, withArgumentsIn: [AnyObject]) -> FMResultSet? {
         let db: FMDatabase = _SQLiteManager.shareManager().db!
         let result: FMResultSet? = db.executeQuery(sql, withArgumentsIn: withArgumentsIn)
@@ -133,6 +119,8 @@ public class BookModel: Equatable, Hashable {
         return result
     }
 
+    // 20200316 JIN End
+    
     /**
      insertbookInfo(Preparement）
      */
@@ -151,7 +139,7 @@ public class BookModel: Equatable, Hashable {
                              DateUtil.getCurrentTimestamp() as AnyObject,
                              DateUtil.getCurrentTimestamp() as AnyObject)
     }
-
+    
     // MARK: Update
 
     public func updatebookInfo() -> Bool {
@@ -173,7 +161,7 @@ public class BookModel: Equatable, Hashable {
                              DateUtil.getCurrentTimestamp() as AnyObject,
                              bookId as AnyObject)
     }
-
+    
     // MARK: delete
 
     public func deletebookInfoByKey() -> Bool {
@@ -182,14 +170,14 @@ public class BookModel: Equatable, Hashable {
         // 2、execute sql
         return executeUpdate(sql: sql, bookId as AnyObject)
     }
-
+    
     public func deletebookInfoBybookNo() -> Bool {
         // 1、create sql statement
         let sql = "DELETE FROM book_INFO WHERE book_NO = ?;"
         // 2、execute sql
         return executeUpdate(sql: sql, bookNo as AnyObject)
     }
-
+    
     // MARK: Get all bookNo books info.
 
     public class func getbookInfoByKey(bookId parambookId: String) -> BookModel? {
@@ -200,7 +188,7 @@ public class BookModel: Equatable, Hashable {
         }
         return getbookInfo(resultSet: res)
     }
-
+    
     // MARK: Get temp bookNo books info.
 
     public class func getTempbookInfo() -> BookModel? {
@@ -211,7 +199,7 @@ public class BookModel: Equatable, Hashable {
         }
         return getbookInfo(resultSet: res)
     }
-
+    
     // MARK: deleteALL
 
     public class func deleteAllbookInfo() -> Bool {
@@ -220,7 +208,7 @@ public class BookModel: Equatable, Hashable {
         // 2、execute sql
         return BookModel.executeUpdate(sql: sql, withArgumentsIn: [])
     }
-
+    
     // MARK: Get all bookNo books info.
 
     public class func loadbookInfos() -> [BookModel] {
@@ -232,7 +220,7 @@ public class BookModel: Equatable, Hashable {
         }
         return models
     }
-
+    
     private class func getbookInfo(resultSet res: FMResultSet?) -> BookModel {
         let bookInfo = BookModel(id: (res?.string(forColumn: "book_ID"))!, bookNo: (res?.string(forColumn: "book_NO"))!)
         bookInfo.tokenId = res?.string(forColumn: "TOKEN_ID") ?? ""
