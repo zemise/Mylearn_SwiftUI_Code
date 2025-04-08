@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct NoteView: View {
-    @State var viewModel = ViewModel()
+//    @State var viewModel = ViewModel()
+
+    @EnvironmentObject var viewModel: ViewModel
 
     var body: some View {
         // 视图布局
@@ -33,6 +35,11 @@ struct NoteView: View {
                     sentence: item.sentence,
                     create_tiem: item.create_time
                 )
+                .contextMenu {
+                    Button("删除") {
+                        viewModel.deleteNote(id: item.id)
+                    }
+                }
 
             })
         })
@@ -74,4 +81,5 @@ struct NoteCard: View {
 
 #Preview {
     NoteView()
+        .environmentObject(ViewModel())
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SentenceModel: Identifiable {
+struct SentenceModel: Identifiable, Codable {
     var id: UUID = .init()
     var sentence: String
     var create_time: String

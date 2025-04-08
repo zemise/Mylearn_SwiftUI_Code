@@ -9,6 +9,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    // 申明共享对象
+    @EnvironmentObject var viewModel: ViewModel
+        
+
     @State var sentences: [(Color, String)] = [
         (.red, "在那些心情低落经历挫折的日子"),
         (.green, "这里应是一个审美多元的年代"),
@@ -57,13 +61,15 @@ struct ContentView: View {
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .automatic))
         .frame(height: UIScreen.main.bounds.height / 3)
-        .onChange(of: selectdTabIndex, initial: true) { newIndex, _ in
+        .onChange(of: selectdTabIndex) { oldIndex, newIndex in
             sentence = sentences[newIndex].1
         }
     }
 
     private var copyBtnView: some View {
-        Button(action: {}, label: {
+        Button(action: {
+            viewModel.addNote(sentence: sentence)
+        }, label: {
             Label("收藏", systemImage: "square.filled.on.square")
                 .bold()
                 .foregroundStyle(.white)
@@ -99,4 +105,6 @@ struct TextCard: View {
 
 #Preview {
     ContentView()
+        // 设置环境对象
+        .environmentObject(ViewModel())
 }
