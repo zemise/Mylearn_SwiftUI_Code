@@ -11,9 +11,13 @@ import SwiftUI
 
 @main
 struct Chapter13App: App {
+    // 创建 ViewModel 实例
+    @StateObject private var viewModel = ViewModel()
+    
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                .environmentObject(viewModel)
         }
     }
 }

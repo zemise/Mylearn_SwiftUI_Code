@@ -8,7 +8,9 @@
 
 import SwiftUI
 
+
 struct MainTabView: View {
+    
     init() {
         UITabBar.appearance().backgroundColor = UIColor(.white)
     }
